@@ -1,8 +1,5 @@
-import { Request } from 'express'
-import { ParamsDictionary } from 'express-serve-static-core'
-import { Strategy as PassportStrategy, StrategyCreated, StrategyCreatedStatic } from 'passport'
-import { Strategy as OAuth2Strategy, StrategyOptions, VerifyFunction, InternalOAuthError } from 'passport-oauth2'
-import { ParsedQs } from 'qs'
+import { Strategy as PassportStrategy } from 'passport'
+import { Strategy as OAuth2Strategy, StrategyOptions, InternalOAuthError } from 'passport-oauth2'
 import { parse, Profile } from './profile'
 
 
@@ -105,4 +102,8 @@ export class Strategy extends OAuth2Strategy implements PassportStrategy {
 
 type ArgsType<F extends (...x: any[]) => any> = F extends (...x: infer A) => any ? A : never
 
-export type VerifyFn = VerifyFunction
+export type VerifyFunction =
+	((accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
+	((accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
+
+type VerifyCallback = (err?: Error | null, user?: Express.User, info?: object) => void;
