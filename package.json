@@ -1,6 +1,6 @@
 {
 	"name": "@agyemanjp/passport-heroku",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Heroku authentication strategy for Passport.",
 	"keywords": [
 		"passport",
