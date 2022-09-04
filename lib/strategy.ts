@@ -1,5 +1,8 @@
-import { Strategy as PassportStrategy } from 'passport'
+import { Request } from 'express'
+import { ParamsDictionary } from 'express-serve-static-core'
+import { Strategy as PassportStrategy, StrategyCreated, StrategyCreatedStatic } from 'passport'
 import { Strategy as OAuth2Strategy, StrategyOptions, VerifyFunction, InternalOAuthError } from 'passport-oauth2'
+import { ParsedQs } from 'qs'
 import { parse, Profile } from './profile'
 
 
@@ -62,6 +65,10 @@ export class Strategy extends OAuth2Strategy implements PassportStrategy {
 		this._userProfileURL = options.userProfileURL || 'https://api.heroku.com/account'
 		this._oauth2.useAuthorizationHeaderforGET(true)
 	}
+
+	name = super.name
+
+	authenticate = super.authenticate
 
 	/** Retrieve user profile from Heroku and return it as a normalized profile */
 	public userProfile(accessToken: string, done: (err: Error | null, result?: Profile) => void) {
