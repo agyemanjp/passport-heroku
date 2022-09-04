@@ -33,12 +33,7 @@
 			"url": "http://www.opensource.org/licenses/MIT"
 		}
 	],
-	"main": "index.js",
-	"types": "index.d.ts",
-	"files": [
-		"*",
-		"!*.tsbuildinfo"
-	],
+	"main": "./lib",
 	"engines": {
 		"node": ">= 0.4.0"
 	},
