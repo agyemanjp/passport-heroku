@@ -8,7 +8,7 @@ This module lets you authenticate using Heroku in your Node.js applications. By 
 ## Install
 
 ```no-highlight
-$ npm install passport-heroku
+$ npm install @agyemanjp/passport-heroku
 ```
 
 ## Usage
@@ -54,7 +54,7 @@ app.get('/auth/heroku/callback',
 
 ## Examples
 
-For a complete, working example, refer to the [login example](https://github.com/mick/passport-heroku/tree/master/examples/login).
+For a complete, working example, refer to the [login example](https://github.com/agyemanjp/passport-heroku/tree/master/examples/login).
 
 ## Tests
 
@@ -63,10 +63,9 @@ $ npm install --dev
 $ make test
 ```
 
-[![Build Status](https://secure.travis-ci.org/mick/passport-heroku.png)](http://travis-ci.org/mick/passport-heroku)
 
 ## Credits
-
+  - [James Prempeh](http://github.com/agyemanjp)
   - [Mick Thompson](http://github.com/mick)
   - Based on [passport-github](http://github.com/jaredhanson/passport-github) by [Jared Hanson](http://github.com/jaredhanson)
 
