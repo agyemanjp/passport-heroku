@@ -94,7 +94,6 @@ export class Strategy extends OAuth2Strategy implements PassportStrategy {
 			}
 		})
 	}
-
 }
 
 type ArgsType<F extends (...x: any[]) => any> = F extends (...x: infer A) => any ? A : never
