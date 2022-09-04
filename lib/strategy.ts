@@ -45,7 +45,7 @@ import { parse, Profile } from './profile'
 export class Strategy extends OAuth2Strategy implements PassportStrategy {
 	private _userProfileURL: string
 
-	constructor(options: StrategyOptions & { userAgent?: string; userProfileURL?: string }, verify: VerifyFunction) {
+	constructor(options: StrategyOptions & { userAgent?: string; userProfileURL?: string }, verify: VerifyFn) {
 		options = options || {}
 		options.authorizationURL = options.authorizationURL || 'https://id.heroku.com/oauth/authorize'
 		options.tokenURL = options.tokenURL || 'https://id.heroku.com/oauth/token'
@@ -104,3 +104,5 @@ export class Strategy extends OAuth2Strategy implements PassportStrategy {
 }
 
 type ArgsType<F extends (...x: any[]) => any> = F extends (...x: infer A) => any ? A : never
+
+export type VerifyFn = VerifyFunction
