@@ -1,3 +1,4 @@
+import { Strategy as PassportStrategy } from 'passport'
 import { Strategy as OAuth2Strategy, StrategyOptions, VerifyFunction, InternalOAuthError } from 'passport-oauth2'
 import { parse, Profile } from './profile'
 
@@ -38,7 +39,7 @@ import { parse, Profile } from './profile'
  * @param {Function} verify
  * @api public
  */
-export class Strategy extends OAuth2Strategy {
+export class Strategy extends OAuth2Strategy implements PassportStrategy {
 	private _userProfileURL: string
 
 	constructor(options: StrategyOptions & { userAgent?: string; userProfileURL?: string }, verify: VerifyFunction) {
@@ -62,13 +63,8 @@ export class Strategy extends OAuth2Strategy {
 		this._oauth2.useAuthorizationHeaderforGET(true)
 	}
 
-	// /** Inherit from `OAuth2Strategy`. */
-	// util.inherits(Strategy, OAuth2Strategy);
-
-
 	/** Retrieve user profile from Heroku and return it as a normalized profile */
 	public userProfile(accessToken: string, done: (err: Error | null, result?: Profile) => void) {
-
 		this._oauth2.get(this._userProfileURL, accessToken, function (err, body, res) {
 			let json = undefined as undefined | ArgsType<typeof parse>[0]
 
