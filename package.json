@@ -1,7 +1,7 @@
 {
 	"name": "@agyemanjp/passport-heroku",
 	"version": "1.0.1",
-	"description": "Heroku authentication strategy for Passport.",
+	"description": "Heroku authentication strategy for Passport, written in TypeScript",
 	"keywords": [
 		"passport",
 		"heroku",
