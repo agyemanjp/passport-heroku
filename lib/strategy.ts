@@ -102,8 +102,6 @@ export class Strategy extends OAuth2Strategy implements PassportStrategy {
 
 type ArgsType<F extends (...x: any[]) => any> = F extends (...x: infer A) => any ? A : never
 
-export type VerifyFunction =
-	((accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
-	((accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
+export type VerifyFunction = (accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void
 
 type VerifyCallback = (err?: Error | null, user?: Express.User, info?: object) => void;
