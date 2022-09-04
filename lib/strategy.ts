@@ -42,7 +42,7 @@ import { parse, Profile } from './profile'
 export class Strategy extends OAuth2Strategy implements PassportStrategy {
 	private _userProfileURL: string
 
-	constructor(options: StrategyOptions & { userAgent?: string; userProfileURL?: string }, verify: VerifyFn) {
+	constructor(options: StrategyOptions & { userAgent?: string; userProfileURL?: string }, verify: VerifyFunction) {
 		options = options || {}
 		options.authorizationURL = options.authorizationURL || 'https://id.heroku.com/oauth/authorize'
 		options.tokenURL = options.tokenURL || 'https://id.heroku.com/oauth/token'
